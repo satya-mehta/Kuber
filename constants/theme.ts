@@ -26,6 +26,20 @@ export const Colors = {
     tabIconSelected: tintColorDark,
   },
 };
+export const C = {
+  primary:      "#4F46E5",
+  primaryLight: "#EEF2FF",
+  primaryDark:  "#3730A3",
+  bg:           "#F7F8FC",
+  card:         "#FFFFFF",
+  paidBg:       "#E8F8EC", paidText:    "#16A34A",
+  pendingBg:    "#FFF7E7", pendingText: "#F59E0B",
+  overdueBg:    "#FFE8E8", overdueText: "#DC2626",
+  subText:      "#7B7B8A",
+  border:       "#ECEEF5",
+  fg:           "#0F0F1A",
+  fgLight:      "#3D3D4E",
+};
 
 export const Fonts = Platform.select({
   ios: {

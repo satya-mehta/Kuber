@@ -8,34 +8,45 @@ import {
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { C } from "../../constants/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import GreetingCard from "../Dashboard/GreetingCard";
-import CollectionOverviewCard from "../Dashboard/CollectionOverviewCard";
-import FlatCards from "../Dashboard/FlatCards";
+import GreetingCard from "../cards/GreetingCard";
+import CollectionOverviewCard from "../cards/CollectionOverviewCard";
+import FlatCards from "../cards/flatStatsCard";
 import RecentActivitySection from "../Dashboard/sections/recentActivitySection";
+import { StatusBar } from "expo-status-bar";
 
 export default function AdminDashboard() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator = {false} contentContainerStyle = {{paddingBottom: 120}}>
-        <View style={styles.headerRow}>
-          <Ionicons name="menu-outline" size={28} color={C.fg} />
-          <Text style={styles.HeaderTitle}>Achhe Raj Enclave</Text>
-          <Ionicons name="notifications-outline" size={28} color={C.fg} />
-        </View>
+    <>
+      <StatusBar style="dark" translucent={false} backgroundColor={"#FFF"} />
+      <SafeAreaView style={styles.container}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 120 }}
+        >
+          <View style={styles.headerRow}>
+            <TouchableOpacity>
+              <Ionicons name="menu-outline" size={28} color={C.fg} />
+            </TouchableOpacity>
+            <Text style={styles.HeaderTitle}>Achhe Raj Enclave</Text>
+            <TouchableOpacity>
+              <Ionicons name="notifications-outline" size={28} color={C.fg} />
+            </TouchableOpacity>
+          </View>
 
-        <GreetingCard />
-        <CollectionOverviewCard />
-        <FlatCards />
-        <RecentActivitySection />
-      </ScrollView>
-    </SafeAreaView>
+          <GreetingCard />
+          <CollectionOverviewCard />
+          <FlatCards />
+          <RecentActivitySection />
+        </ScrollView>
+      </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 8,
+    paddingHorizontal: 8,
     backgroundColor: C.bg,
   },
   headerRow: {

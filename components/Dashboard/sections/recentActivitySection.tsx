@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { C } from "@/constants/theme";
-import RecentActivityCard from "../recentActivityCard";
+import RecentActivityCard from "../../cards/recentActivityCard";
 import { activityConfig, activities } from "@/constants/activities";
 
 export default function recentActivitySection() {

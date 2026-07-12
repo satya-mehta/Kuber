@@ -39,6 +39,8 @@ export const C = {
   border:       "#ECEEF5",
   fg:           "#0F0F1A",
   fgLight:      "#3D3D4E",
+  lightgrey:    "#3333331e",
+  greyIcon :    "#33333364"
 };
 
 export const Fonts = Platform.select({

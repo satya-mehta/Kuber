@@ -3,14 +3,24 @@ import React from "react";
 import { C } from "@/constants/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import * as data from "@/constants/flats";
+import { router } from "expo-router";
 
 type FlatCardProps = {
   icon: React.ReactNode;
   title: number;
-  subtitle: string;
+  subtitle: String;
+  filter: "all" | "paid" | "pending" | "overdue";
   onPress?: () => void;
   iconbg: string;
 };
+
+function routeToFlats(filter: "all" | "paid" | "pending" | "overdue") {
+  router.push({
+    pathname: "/flats",
+
+    params: { filter },
+  });
+}
 
 export default function FlatCards() {
   return (
@@ -18,6 +28,7 @@ export default function FlatCards() {
       <FlatCard
         icon={<Ionicons name="people-outline" size={30} color={C.primary} />}
         title={data.total_flats}
+        filter="all"
         subtitle="Total Flats"
         iconbg={C.primaryLight}
       />
@@ -31,12 +42,14 @@ export default function FlatCards() {
         }
         title={data.paid_flats}
         subtitle="Paid"
+        filter="paid"
         iconbg={C.paidBg}
       />
       <FlatCard
         icon={<Ionicons name="time-outline" size={30} color={C.pendingText} />}
         title={data.total_flats - data.paid_flats}
         subtitle="Pending"
+        filter="pending"
         iconbg={C.pendingBg}
       />
       <FlatCard
@@ -45,6 +58,7 @@ export default function FlatCards() {
         }
         title={data.flats_overdue}
         subtitle="Overdue"
+        filter="overdue"
         iconbg={C.overdueBg}
       />
     </View>
@@ -91,9 +105,13 @@ const styles = StyleSheet.create({
   },
 });
 
-function FlatCard({ icon, title, subtitle, iconbg, onPress }: FlatCardProps) {
+function FlatCard({ icon, title, subtitle, filter, iconbg, onPress }: FlatCardProps) {
   return (
-    <TouchableOpacity activeOpacity={0.6} style={styles.card} onPress={onPress}>
+    <TouchableOpacity
+      activeOpacity={0.6}
+      style={styles.card}
+      onPress={ () => routeToFlats(filter)}
+    >
       <View style={[styles.iconContainer, { backgroundColor: iconbg }]}>
         {icon}
       </View>

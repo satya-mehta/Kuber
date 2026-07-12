@@ -1,19 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import {C} from "@/constants/theme"
-import * as Progress from "react-native-progress"
-import { useEffect,useState } from 'react'
-
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { C } from "@/constants/theme";
+import * as Progress from "react-native-progress";
+import { useEffect, useState } from "react";
+import { DatechipSmall } from "../commons/datechips";
 
 export default function CollectionOverviewCard() {
-    const [progress, setProgress] = useState(0);
-      useEffect(() => {
-        const timer = setTimeout(() => {
-          setProgress(0.75);
-        }, 300);
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setProgress(0.75);
+    }, 300);
 
-        return () => clearTimeout(timer);
-      }, []);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <View style={styles.collectionOverviewCard}>
       <View
@@ -24,9 +24,7 @@ export default function CollectionOverviewCard() {
         }}
       >
         <Text style={{ fontWeight: "600" }}>Collection Overview</Text>
-        <View style={[styles.dateChipSmall, { paddingVertical: 10 }]}>
-          <Text style={[styles.dateText, { fontSize: 10 }]}>May 2026</Text>
-        </View>
+        <DatechipSmall />
       </View>
 
       <View style={styles.collectionMainRow}>
@@ -118,13 +116,6 @@ const styles = StyleSheet.create({
     color: "#333",
     fontSize: 30,
     fontWeight: "900",
-  },
-  dateChipSmall: {
-    flexDirection: "row",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: C.primaryLight,
-    borderRadius: 999,
   },
   dateText: {
     fontSize: 12,

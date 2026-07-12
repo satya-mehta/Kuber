@@ -17,7 +17,7 @@ import { StatusBar } from "expo-status-bar";
 export default function AdminDashboard() {
   return (
     <>
-      <StatusBar style="dark" translucent={false} backgroundColor={"#FFF"} />
+      <StatusBar style="dark" translucent={false} />
       <SafeAreaView style={styles.container}>
         <ScrollView
           showsVerticalScrollIndicator={false}

@@ -9,21 +9,21 @@ export const statusConfig = {
     text: C.paidText,
     background: C.paidBg,
     color: C.paidText,
-    icon: "checkmark-circle",
+    icon: "checkmark-circle-outline",
   },
 
   pending: {
     text: C.pendingText,
     background: C.pendingBg,
     color: C.pendingText,
-    icon: "time",
+    icon: "time-outline",
   },
 
   overdue: {
     text: C.overdueText,
     background: C.overdueBg,
     color: C.overdueText,
-    icon: "warning",
+    icon: "warning-outline",
   },
 } as const;
 

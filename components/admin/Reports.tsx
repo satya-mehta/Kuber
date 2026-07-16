@@ -7,6 +7,7 @@ import { router } from 'expo-router'
 import { Datechips } from '../commons/datechips'
 import { ReportCollectionCard } from '../cards/reportsCollectionCard'
 import CollectionTrendCard from '../cards/collectionTrendCard'
+import TopDefaultersCard from '../cards/TopDefaultersCard'
 
 export default function Reports() {
   return (
@@ -36,6 +37,8 @@ export default function Reports() {
         </View>
 
         <CollectionTrendCard />
+
+        <TopDefaultersCard />
       </ScrollView>
     </SafeAreaView>
   );
